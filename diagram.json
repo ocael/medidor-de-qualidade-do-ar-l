@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "author": "Micael",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -96, "left": -14.36, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 204.74,
+      "left": -18.97,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_umid_baixa",
+      "top": -166.8,
+      "left": 167,
+      "attrs": { "color": "cyan" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_umid_alta",
+      "top": -166.8,
+      "left": 128.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -36,
+      "left": -180.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_temp_baixa",
+      "top": -138,
+      "left": -121,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_temp_alta",
+      "top": -138,
+      "left": -169,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -57.3,
+      "left": 157.8,
+      "attrs": { "temperature": "80", "humidity": "70" }
+    },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": 108.3, "left": -213.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "oled1:GND", "black", [] ],
+    [ "esp:5V", "oled1:VCC", "red", [] ],
+    [ "esp:22", "oled1:SCL", "green", [] ],
+    [ "esp:21", "oled1:SDA", "green", [] ],
+    [ "led_umid_baixa:A", "esp:2", "yellow", [] ],
+    [ "led_umid_baixa:C", "esp:GND.1", "black", [] ],
+    [ "led_umid_alta:A", "esp:5", "yellow", [] ],
+    [ "led_umid_alta:C", "esp:GND.1", "black", [] ],
+    [ "bz1:1", "esp:GND.1", "black", [] ],
+    [ "bz1:2", "esp:25", "red", [] ],
+    [ "led_temp_baixa:A", "esp:12", "red", [] ],
+    [ "led_temp_baixa:C", "esp:GND.1", "black", [] ],
+    [ "led_temp_alta:A", "esp:14", "red", [] ],
+    [ "led_temp_alta:C", "esp:GND.1", "black", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+    [ "dht1:SDA", "esp:15", "green", [] ],
+    [ "gas1:GND", "esp:GND.1", "black", [ "h0" ] ],
+    [ "gas1:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "gas1:DOUT", "esp:27", "green", [ "h0" ] ],
+    [ "gas1:AOUT", "esp:34", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
