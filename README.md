@@ -4,6 +4,14 @@ Sistema de monitoramento ambiental desenvolvido com **ESP32**, integrando sensor
 
 ---
 
+## 📷 Protótipo
+
+> *Simulação feita no [Wokwi](https://wokwi.com/).*
+
+![Protótipo do circuito](imagens/prototipo.png)
+
+---
+
 ## 🔎 Visão Geral
 
 Este projeto monitora continuamente:
